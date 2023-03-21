@@ -10,12 +10,14 @@ class Program
 
         while (true)
         {
+            Console.Clear();
             PrintBoard(board);
             Console.WriteLine("Введите строку и столбец (например, 1 2) для " + (isPlayer1 ? "X" : "O"));
             string[] input = Console.ReadLine().Split();
             if (input.Length != 2)
             {
                 Console.WriteLine("Не корректно введены строка или столбец. Попробуйте еще раз.");
+                Thread.Sleep(1500);
                 continue;
             }
             row = int.Parse(input[0]) - 1;
@@ -26,10 +28,12 @@ class Program
             if (row < 0 || row > 2 || col < 0 || col > 2)
             {
                 Console.WriteLine("Недопустимая строка или столбец. Попробуйте еще раз.");
+                Thread.Sleep(1500);
             }
             else if (board[row, col] != ' ')
             {
                 Console.WriteLine("Эта ячейка уже занята. Попробуйте еще раз.");
+                Thread.Sleep(1500);
             }
             else
             {
